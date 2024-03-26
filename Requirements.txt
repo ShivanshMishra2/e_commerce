@@ -1,0 +1,18 @@
+Requirments:-
+0 ) npm i
+
+1) MySQL
+-->Run modle/create.js
+-->Manual insert user & Merchant ID& Password on database
+-->Add product  from merchant to create database.
+
+2)Nodejs
+
+3) .env file 
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=*****
+DB_DATABASE=ecommerce
+DB_PORT=3000
+
+4) npm start
