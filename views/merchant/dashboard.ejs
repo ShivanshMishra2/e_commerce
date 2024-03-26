@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="/merchant/stylesheet/dashboard.css" rel="stylesheet">
+    <title>Merchants</title>
+    <script src="https://kit.fontawesome.com/30c701c8ad.js" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <div class="main">
+        
+        <div class="upper">
+            <input type="text" class="search" placeholder="Search Product">
+            <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div class="lower">
+            <a href="/merchant/<%= merchant.merchant_id %>/history">History</a>
+            <% products.forEach(function(product) { %>
+                <div class="productCard">
+                    <div class="cardLeft">
+                        <img src="<%= product.photo_data %>" alt="Product Image">
+                    </div>
+                    <div class="cardRight">
+                        <div class="rightUpper">
+                            <h3><%= product.name %></h3>
+                            <p><%= product.description %></p>
+                        </div>
+                        <div class="cardCenter">
+                            <input type="text" class="quantity" value="<%= product.stock_quantity %>">
+                            <p>Edit Price</p>
+                        </div>
+                        <div class="rightLower">
+                            <p class="price">$<%= product.price %></p>
+                            <button class="buy">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+        <a href="/merchant/<%= merchant.merchant_id %>/addProduct">Add Product</a>
+    </div>
+    
+</body>
+
+<script src="/merchant/javascript/dashboard.js"></script>
+
+</html>

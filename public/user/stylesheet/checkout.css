@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html , body {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(231, 225, 225);
+    overflow: hidden;
+}
+
+.main {
+    
+    margin-top: 2vw;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-left: 5vw;
+
+    width: 55%;
+}
+
+.right {
+    margin-top: 2vw;
+    height: 100%;
+    width: 45%;
+    display: flex;
+    justify-self: center;
+}
+
+.contactInfo {
+    margin-top: 20px;
+}
+h1 , h2 , h3{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input {
+    margin-top: 10px;
+    background-color: rgb(182, 182, 182);
+    border: 1px solid rgb(156, 156, 156);
+    border-radius: 10px;
+    width: 45vw;
+    height: 7vh;
+    padding: 2px 10px;
+}
+
+.shippingAddress {
+    margin-top: 20px;
+}
+
+.city {
+    display: flex;
+    flex-direction: row;
+}
+
+.cityIn {
+    margin-right: 1.3vw;
+    width: 21vw;
+}
+
+.order-card {
+    display: flex;
+    flex-direction: row;
+    height: 50vh;
+    width: 35vw;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.card-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    
+    width: 50%;
+    height: 100%;
+    
+}
+
+img {
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+.card-right {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 50%;
+    height: 100%;
+    
+}
+
+.Proceed {
+    margin-top: 13vw;
+}
+
+ a {
+    text-decoration: none;
+    color: black;
+ }

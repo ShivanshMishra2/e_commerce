@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User History</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .action-btn {
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .accept {
+            background-color: green;
+            color: white;
+        }
+        .reject {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Transaction List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Order ID</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% transactions.forEach(transaction => { %>
+            <tr>
+                <td><%= transaction.product_id %></td>
+                <td><%= transaction.order_id %></td>
+                <td><%= new Date(transaction.order_date).toLocaleString() %></td>
+                <td>$<%= transaction.total_amount %></td>
+                <td><%= transaction.payment_status %></td>
+            </tr>
+            <% }); %>
+        </tbody>        
+    </table>
+</body>
+</html>

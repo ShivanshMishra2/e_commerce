@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="/user/stylesheet/dashboard.css" rel="stylesheet">
+    <title>Products</title>
+    <script src="https://kit.fontawesome.com/30c701c8ad.js" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <div class="main">
+        <div class="upper">
+            <input type="text" class="search" placeholder="Search Product">
+            <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div class="lower">
+            <a href="/user/<%= user.user_id %>/history">History</a>
+            <% allProducts.forEach(product => { %>
+            <div class="productCard">
+                <div class="cardLeft">
+                    <!-- Placeholder image URL -->
+                    <img src="<%= product.photo_data %>">
+                </div>
+                <div class="cardRight">
+                    <div class="rightUpper">
+                        <h3><%= product.name %></h3>
+                        <p><%= product.description %></p>
+                        <p>Avilable quantity -> <%= product.stock_quantity %></p>
+                    </div>
+                    <div class="cardCenter">
+                        <input type="text" class="quantity" value="1">
+                        <p>Quantity</p>
+                    </div>
+                    <div class="rightLower">
+                        <P class="price" id="productAprice">$<%= product.price %></P>
+                        <form action="/user/<%= user.user_id %>/buy/<%= product.product_id %>" method="get">
+                            <input type="hidden" name="quantity" value="1">
+                            <button> Buy </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+</body>
+
+<script src="/user/javascript/dashboard.js"></script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="/user/stylesheet/checkout.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/30c701c8ad.js" crossorigin="anonymous"></script>
+    <title>Checkout</title>
+
+</head>
+<body>
+    <div class="main">
+        <div class="left">
+            <h1>CHECKOUT</h1>
+            <div class="contactInfo">
+                <h2>Contact Info</h2>
+
+                <input type="text" class="Email" placeholder="Email">
+                <br>
+                <input type="text" class="Phone" placeholder="Phone">
+            </div>
+
+            <div class="shippingAddress">
+                <h2>Shipping Address</h2>
+                <input type="text" class="Name" placeholder="Full Name">
+                <input type="text" class="Country" placeholder="Country">
+                <input type="text" class="State" placeholder="State/Region">
+                <input type="text" class="Address" placeholder="Address">
+                <div class="city">
+                    <input type="text" id="cityName" class="cityIn" placeholder="City">
+                    <input type="text" id="cityPin" class="cityIn" placeholder="Pincode">
+                </div>
+                
+            </div>
+        </div>
+        <div class="right">
+            <div class="order-card">
+                <div class="card-left">
+                    <img src="<%= product.photo_data %>">
+                </div>
+                <div class="card-right">
+                    <div class="ProductInfo">
+                        <h2 class="productHeading"><%= product.name %> </h2>
+                        <h3>Total Price: $<%= (product.price * quantity)%> </h3>
+                    </div>
+
+                    <div class="Proceed">
+                        <a href="/user/<%= user.user_id %>/buy/<%= product.product_id %>/payment/<%= product.price * quantity %>">
+                            <h3>Proceed To Payment <i class="fa-solid fa-arrow-right"></i></h3>
+                        </a> 
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

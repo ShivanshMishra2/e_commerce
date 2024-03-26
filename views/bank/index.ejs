@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction List</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .action-btn {
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .accept {
+            background-color: green;
+            color: white;
+        }
+        .reject {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Transaction List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Merchant ID</th>
+                <th>Customer ID</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% transactions.forEach(transaction => { %>
+            <tr>
+                <td><%= transaction.payment_id %></td>
+                <td><%= transaction.merchant_id %></td>
+                <td><%= transaction.user_id %></td>
+                <td><%= new Date(transaction.order_date).toLocaleString() %></td>
+                <td>$<%= transaction.total_amount %></td>
+                <td><%= transaction.payment_status %></td>
+                <td>
+                    <% if (transaction.payment_status !== 'completed') { %>
+                        <form action="/bank/transaction/<%= transaction.payment_id %>/accept" method="POST">
+                            <input type="hidden" name="action" value="accept">
+                            <button class="action-btn accept">Accept</button>
+                        </form>
+                    <% } %>
+                    <% if (transaction.payment_status !== 'completed') { %>
+                        <form action="/bank/transaction/<%= transaction.payment_id %>/reject" method="POST">
+                            <input type="hidden" name="action" value="reject">
+                            <button class="action-btn reject">Reject</button>
+                        </form>
+                    <% } %>
+                </td>
+            </tr>
+            <% }); %>
+        </tbody>        
+    </table>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="/user/stylesheet/pay.css" rel="stylesheet">
+    <title>Payment</title>
+</head>
+<body>
+    <div class="main">
+        <div class="center">
+            <div class="upper">
+                <a href="https://www.shift4shop.com/credit-card-logos.html"><img alt="Credit Card Logos" title="Credit Card Logos" src="https://www.shift4shop.com/images/credit-card-logos/cc-lg-4.png" width="250" height="auto"/></a>
+
+            </div>
+
+            <div class="lower">
+                <div class="Nameinfo">
+                    <p>Card Holder Name</p>
+                    <input class="name" type="text">
+                </div>
+
+                <div class="Nameinfo">
+                    <p>Card Number</p>
+                    <input class="card-number" type="text">
+                </div>
+
+                <div class="Cardinfo">
+                    
+                    <div class="Expiryinfo">
+                        <p>Expiry Date</p>
+                        <input class="card" type="text">
+                    </div>
+
+                    <div class="Cvvinfo">
+                        <p>CVV</p>
+                        <input class="cvv" type="text">
+                    </div>
+                    
+                </div>
+
+                <div class="Nameinfo">
+                    <p>Email</p>
+                    <input class="card-number" type="text">
+                </div>
+
+                <form action="/user/<%= user.user_id %>/buy/<%= product.product_id %>/payment/<%= totalAmount %>" class="Nameinfo" method="post">
+                    <button class="payNow">Pay <%= totalAmount %></button>                    
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
